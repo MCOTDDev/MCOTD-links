@@ -1,0 +1,133 @@
+/* Reset some basic defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling:
+   - We'll give the body a relative position so #interactive-background
+     can be absolutely or fixed-positioned behind everything.
+   - Use any font or background color you want.
+*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* fallback if interactive background fails */
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The interactive background container:
+   - Positioned behind the main content
+   - Full viewport size
+   - Lower z-index
+*/
+#interactive-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* sits behind everything */
+  background: transparent; /* or some fallback color if needed */
+  /* If you have a background animation, you might render it here. */
+}
+
+/* Main container:
+   - Centered content
+   - A bit of spacing
+*/
+.container {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Main title for MCOTD */
+.main-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Social box:
+   - White background, rounded corners
+   - ~70% of container width
+   - Horizontal row of icons
+*/
+.social-box {
+  margin: 0 auto 2rem auto; /* center it and give space below */
+  width: 70%;
+  background-color: #fff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem; /* some padding around the icons */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Individual social buttons:
+   - Small squares/circles with icons
+   - You can tweak these to your liking
+*/
+.social-button {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+/* Simple hover effect for each icon */
+.social-button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Interactive image container:
+   - ~80% width of the container
+*/
+.interactive-image-container {
+  width: 80%;
+  margin: 0 auto; /* center it */
+  overflow: hidden; /* if you have effects that go beyond edges */
+}
+
+/* The image itself:
+   - responsive
+   - you can also set a max-height if needed
+*/
+.interactive-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* slight rounding if you like */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE TIP:
+   This layout is already pretty fluid, but you can add media queries
+   if you want to adjust font sizes or spacing on smaller screens.
+*/
+@media (max-width: 500px) {
+  .main-title {
+    font-size: 1.5rem;
+  }
+  .social-box {
+    width: 90%;
+  }
+  .social-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+  .interactive-image-container {
+    width: 90%;
+  }
+}

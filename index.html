@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MCOTD</title>
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Optionally load Font Awesome for icons (using a CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+</head>
+<body>
+
+  <!-- Interactive background container (z-index tricks happen in CSS) -->
+  <div id="interactive-background"></div>
+
+  <!-- Main content container -->
+  <main class="container">
+
+    <!-- Title -->
+    <h1 class="main-title">MCOTD</h1>
+
+    <!-- Social buttons row -->
+    <div class="social-box">
+      <a href="#" class="social-button">
+        <i class="fab fa-tiktok"></i> <!-- TikTok icon -->
+      </a>
+      <a href="#" class="social-button">
+        <i class="fab fa-discord"></i> <!-- Discord icon -->
+      </a>
+      <a href="#" class="social-button">
+        <i class="fab fa-telegram-plane"></i> <!-- Telegram icon -->
+      </a>
+      <a href="#" class="social-button">
+        <i class="fab fa-x-twitter"></i> <!-- X (Twitter) icon -->
+      </a>
+    </div>
+
+    <!-- Interactive image placeholder -->
+    <div class="interactive-image-container">
+      <!-- The <img> tag itself, or you can create it dynamically in JS if you prefer -->
+     <img id="interactive-image" src="screentg.PNG" alt="My awesome image" />
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="interactive-background.js"></script>
+  <script src="interactive-image.js"></script>
+</body>
+</html>
