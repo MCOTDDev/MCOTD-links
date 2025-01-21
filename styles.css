@@ -5,25 +5,20 @@
   box-sizing: border-box;
 }
 
-/* Body styling:
-   - We'll give the body a relative position so #interactive-background
-     can be absolutely or fixed-positioned behind everything.
-   - Use any font or background color you want.
-*/
+/* Body */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0; /* fallback if interactive background fails */
-  position: relative;
+  position: relative; /* So the background can be fixed behind it */
   min-height: 100vh;
+  background: #f0f0f0; /* fallback if JS background doesn't work */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* center the main container horizontally */
+  align-items: flex-start; /* start at the top, can change to center if you want vertically centered */
+  padding: 2rem 0; /* some top/bottom space */
 }
 
-/* The interactive background container:
-   - Positioned behind the main content
-   - Full viewport size
-   - Lower z-index
+/* The interactive background:
+   Fill the full browser viewport and sit behind everything (z-index: -1).
 */
 #interactive-background {
   position: fixed;
@@ -31,52 +26,43 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* sits behind everything */
-  background: transparent; /* or some fallback color if needed */
-  /* If you have a background animation, you might render it here. */
+  z-index: -1;
+  /* If you have a background script or color, you can put a fallback color here too:
+  background: rgba(0,0,0,0.05); */
 }
 
-/* Main container:
-   - Centered content
-   - A bit of spacing
-*/
-.container {
+/* Main container for all content */
+.main-container {
   width: 90%;
   max-width: 600px;
   text-align: center;
 }
 
-/* Main title for MCOTD */
-.main-title {
+/* Title */
+.title {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-/* Social box:
-   - White background, rounded corners
-   - ~70% of container width
-   - Horizontal row of icons
-*/
+/* Social box: White container to hold icons, centered. */
 .social-box {
-  margin: 0 auto 2rem auto; /* center it and give space below */
-  width: 70%;
-  background-color: #fff;
-  border-radius: 12px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* center the icons in a row */
   align-items: center;
-  padding: 0.5rem; /* some padding around the icons */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  gap: 1rem; /* space between icons */
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  width: 70%; /* about 70% of the main container's width */
+  margin: 0 auto 2rem auto; /* center horizontally, plus bottom margin */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Individual social buttons:
-   - Small squares/circles with icons
-   - You can tweak these to your liking
-*/
+/* Each social button */
 .social-button {
-  color: #000;
+  color: #444; /* icon color */
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -86,47 +72,41 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Simple hover effect for each icon */
 .social-button:hover {
-  background-color: #e6e6e6;
+  background-color: #e9e9e9;
 }
 
-/* Interactive image container:
-   - ~80% width of the container
-*/
+/* Interactive image container (80% width, centered) */
 .interactive-image-container {
   width: 80%;
-  margin: 0 auto; /* center it */
-  overflow: hidden; /* if you have effects that go beyond edges */
+  margin: 0 auto;
 }
 
-/* The image itself:
-   - responsive
-   - you can also set a max-height if needed
-*/
-.interactive-image-container img {
+/* The image itself */
+#interactive-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px; /* slight rounding if you like */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* RESPONSIVE TIP:
-   This layout is already pretty fluid, but you can add media queries
-   if you want to adjust font sizes or spacing on smaller screens.
-*/
+/* Example of small responsive tweak */
 @media (max-width: 500px) {
-  .main-title {
-    font-size: 1.5rem;
+  .title {
+    font-size: 1.6rem;
   }
+
   .social-box {
-    width: 90%;
+    width: 90%; /* narrower screens => 90% width */
   }
+
   .social-button {
     width: 36px;
     height: 36px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
+
   .interactive-image-container {
     width: 90%;
   }
