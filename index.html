@@ -8,53 +8,59 @@
   <!-- Link to external CSS -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Optionally load Font Awesome for icons (using a CDN) -->
-  <link
+  <!-- Include Font Awesome 6 (for Discord, TikTok, Telegram, X icons) -->
+  <!-- The link below is a common CDN (update integrity/SRI if you want) -->
+  <link 
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-..."
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
 </head>
 <body>
-
-  <!-- Interactive background container (z-index tricks happen in CSS) -->
+  <!-- Interactive background -->
   <div id="interactive-background"></div>
 
-  <!-- Main content container -->
-  <main class="container">
-
+  <!-- Main container -->
+  <main class="main-container">
     <!-- Title -->
-    <h1 class="main-title">MCOTD</h1>
+    <h1 class="title">MCOTD</h1>
 
-    <!-- Social buttons row -->
+    <!-- Social buttons (centered) -->
     <div class="social-box">
-      <a href="#" class="social-button">
-        <i class="fab fa-tiktok"></i> <!-- TikTok icon -->
+      <a href="https://www.tiktok.com" target="_blank" class="social-button">
+        <i class="fa-brands fa-tiktok"></i>
       </a>
-      <a href="#" class="social-button">
-        <i class="fab fa-discord"></i> <!-- Discord icon -->
+      <a href="https://discord.com" target="_blank" class="social-button">
+        <i class="fa-brands fa-discord"></i>
       </a>
-      <a href="#" class="social-button">
-        <i class="fab fa-telegram-plane"></i> <!-- Telegram icon -->
+      <a href="https://telegram.org/" target="_blank" class="social-button">
+        <i class="fa-brands fa-telegram"></i>
       </a>
-      <a href="#" class="social-button">
-        <i class="fab fa-x-twitter"></i> <!-- X (Twitter) icon -->
+      <!-- 'X' is basically Twitter rebranded. This uses the official "X Twitter" icon in FA6 -->
+      <a href="https://twitter.com/" target="_blank" class="social-button">
+        <i class="fa-brands fa-x-twitter"></i>
       </a>
     </div>
 
-    <!-- Interactive image placeholder -->
+    <!-- Interactive Image Section -->
     <div class="interactive-image-container">
-      <!-- The <img> tag itself, or you can create it dynamically in JS if you prefer -->
-     <img id="interactive-image" src="screentg.PNG" alt="My awesome image" />
+      <!-- Replace 'myImage.jpg' with your actual image path/filename. 
+           If it's in the same folder, just the filename works. 
+           If it's in /images, do "images/myImage.jpg" 
+      -->
+      <img
+        id="interactive-image"
+        src="myImage.jpg"
+        alt="Interactive element"
+      />
     </div>
-
   </main>
 
-  <!-- Scripts -->
+  <!-- Scripts (adjust the filenames if yours differ) -->
   <script src="interactive-background.js"></script>
   <script src="interactive-image.js"></script>
 </body>
 </html>
+
